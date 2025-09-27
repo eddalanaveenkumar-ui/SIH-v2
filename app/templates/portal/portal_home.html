@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <div class="card border-warning">
+            <div class="card-header bg-warning text-dark">
+                <h3><i class="fas fa-lock"></i> Staff Portal</h3>
+                <p class="mb-0">Restricted Access - Teachers and HODs Only</p>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <h5><i class="fas fa-info-circle"></i> Important Notice</h5>
+                    <p>This portal is exclusively for teaching staff and administrators. 
+                       Students should use the main attendance system.</p>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-success">
+                                    <i class="fas fa-chalkboard-teacher"></i> Teacher Access
+                                </h5>
+                                <p class="card-text">Access student attendance records and reports.</p>
+                                <div class="d-grid gap-2">
+                                    <a href="{{ url_for('portal.portal_signup') }}?type=teacher" class="btn btn-outline-success">
+                                        Teacher Sign Up
+                                    </a>
+                                    <a href="{{ url_for('portal.portal_login') }}?type=teacher" class="btn btn-success">
+                                        Teacher Login
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-danger">
+                                    <i class="fas fa-user-shield"></i> HOD/Admin Access
+                                </h5>
+                                <p class="card-text">Full system access and management capabilities.</p>
+                                <div class="d-grid gap-2">
+                                    <a href="{{ url_for('portal.portal_signup') }}?type=admin" class="btn btn-outline-danger">
+                                        HOD Sign Up
+                                    </a>
+                                    <a href="{{ url_for('portal.portal_login') }}?type=admin" class="btn btn-danger">
+                                        HOD Login
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6><i class="fas fa-exclamation-triangle"></i> Security Notice</h6>
+                            <p class="small text-muted mb-0">
+                                Keep your secret codes confidential. Do not share portal access with unauthorized personnel.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <a href="{{ url_for('main.index') }}" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left"></i> Back to Main Site
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

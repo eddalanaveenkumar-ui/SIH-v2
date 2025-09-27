@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10 text-center">
+        <h1 class="mb-4">Welcome to Attendance System</h1>
+        <p class="lead">Choose your portal to continue</p>
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Student Portal</h5>
+                        <p class="card-text">View your attendance records and upload photos</p>
+                        <a href="{{ url_for('auth.login') }}?user_type=student" class="btn btn-primary">Student Login</a>
+                        <a href="{{ url_for('auth.signup') }}" class="btn btn-outline-primary mt-2">Student Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card border-success">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">Teacher Portal</h5>
+                        <p class="card-text">View student attendance reports and analytics</p>
+                        <a href="{{ url_for('portal.portal_login') }}?type=teacher" class="btn btn-success">Teacher Login</a>
+                        <div class="mt-2">
+                            <small class="text-muted">Contact admin for portal access</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card border-warning">
+                    <div class="card-body">
+                        <h5 class="card-title text-warning">Admin Portal</h5>
+                        <p class="card-text">Manage users and attendance records</p>
+                        <a href="{{ url_for('portal.portal_login') }}?type=admin" class="btn btn-warning">Admin Login</a>
+                        <div class="mt-2">
+                            <small class="text-muted">Restricted administrative access</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden staff portal access -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card border-danger">
+                    <div class="card-body text-center">
+                        <h6 class="card-title text-danger">
+                            <i class="fas fa-lock"></i> Staff Portal Access
+                        </h6>
+                        <p class="small text-muted mb-2">
+                            For teaching staff and administrators only
+                        </p>
+                        <a href="{{ url_for('portal.portal_home') }}" class="btn btn-outline-danger btn-sm">
+                            <i class="fas fa-shield-alt"></i> Access Staff Portal
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h4>Sign Up</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="user_type" class="form-label">Register As:</label>
+                        <select class="form-select" id="user_type" name="user_type" required onchange="toggleSecretCode()">
+                            <option value="student">Student</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                    </div>
+
+                    <div class="mb-3" id="secret_code_field" style="display: none;">
+                        <label for="secret_code" class="form-label">Secret Code</label>
+                        <input type="password" class="form-control" id="secret_code" name="secret_code" placeholder="Enter secret code for teacher/admin registration">
+                        <div class="form-text">Contact system administrator for secret codes</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                </form>
+
+                <div class="mt-3 text-center">
+                    <p>Already have an account? <a href="{{ url_for('auth.login') }}">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleSecretCode() {
+    const userType = document.getElementById('user_type').value;
+    const secretCodeField = document.getElementById('secret_code_field');
+
+    if (userType === 'teacher' || userType === 'admin') {
+        secretCodeField.style.display = 'block';
+        document.getElementById('secret_code').required = true;
+    } else {
+        secretCodeField.style.display = 'none';
+        document.getElementById('secret_code').required = false;
+    }
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', toggleSecretCode);
+</script>
+{% endblock %}
