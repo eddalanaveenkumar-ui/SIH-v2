@@ -64,5 +64,7 @@ We propose a **Smart Attendance & Analytics System powered by Artificial Intelli
 ## 📊 Future Enhancements
 - Integration with **biometric authentication**  
 - AI-powered **attendance prediction** based on patterns  
-- College-wide **reporting system** with downloadable insights  
+- College-wide **reporting system** with downloadable insights
+- This App is not fully completed , the cctv plugins should be integrated !
 
+##Thank you ! 😊
