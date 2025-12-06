@@ -67,4 +67,4 @@ We propose a **Smart Attendance & Analytics System powered by Artificial Intelli
 - College-wide **reporting system** with downloadable insights
 - This App is not fully completed , the cctv plugins should be integrated !
 
-##Thank you ! 😊
+Thank you ! 😊
